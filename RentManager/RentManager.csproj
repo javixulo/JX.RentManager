@@ -107,7 +107,6 @@
     <Compile Include="Model\Property.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="RentManagerDatacontext.cs" />
-    <Compile Include="Validations\RequiredFieldValidationRule.cs" />
     <Compile Include="Windows\SelectObjectWindow.xaml.cs">
       <DependentUpon>SelectObjectWindow.xaml</DependentUpon>
     </Compile>
