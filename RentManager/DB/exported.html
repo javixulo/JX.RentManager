@@ -1,0 +1,1010 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+    <title>Exported database: RentManagerDB</title>
+    <style type="text/css">
+        table
+        {
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            border-collapse: collapse;
+        }
+        
+        table tr
+        {
+            background-color: white;
+        }
+        
+        table tr.header
+        {
+            background-color: #DDDDDD;
+        }
+        
+        table tr.title
+        {
+            background-color: #EEEEEE;
+        }
+        
+        table tr td
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+        }
+        
+        table tr td.null
+        {
+            color: #999999;
+            text-align: center;
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+        }
+        
+        table tr td.separator
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+            background-color: #DDDDDD;
+        }
+        
+        table tr td.rownum
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+            background-color: #DDDDDD;
+            text-align: right;
+        }
+        
+    </style>
+    <body>
+        <table>
+            <tr class="title">
+                <td colspan="10" align="center">Table: Fiador</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>dni_cif</b><br/>TEXT
+                </td>
+                <td>
+                    <b>nombre</b><br/>TEXT
+                </td>
+                <td>
+                    <b>direccion</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_1</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_2</b><br/>TEXT
+                </td>
+                <td>
+                    <b>email</b><br/>TEXT
+                </td>
+                <td>
+                    <b>estado</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_alta</b><br/>DATE
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="11" align="center">Table: Inquilino</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>dni_cif</b><br/>TEXT
+                </td>
+                <td>
+                    <b>nombre</b><br/>TEXT
+                </td>
+                <td>
+                    <b>direccion</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_1</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_2</b><br/>TEXT
+                </td>
+                <td>
+                    <b>email</b><br/>TEXT
+                </td>
+                <td>
+                    <b>estado</b><br/>TEXT
+                </td>
+                <td>
+                    <b>dia_pago</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>fecha_alta</b><br/>DATE
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="12" align="center">Table: Propietario</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>dni_cif</b><br/>TEXT
+                </td>
+                <td>
+                    <b>nombre</b><br/>TEXT
+                </td>
+                <td>
+                    <b>direccion</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_1</b><br/>TEXT
+                </td>
+                <td>
+                    <b>telefono_2</b><br/>TEXT
+                </td>
+                <td>
+                    <b>email</b><br/>TEXT
+                </td>
+                <td>
+                    <b>anagrama</b><br/>TEXT
+                </td>
+                <td>
+                    <b>firma</b><br/>TEXT
+                </td>
+                <td>
+                    <b>estado</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_alta</b><br/>DATE
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="21" align="center">Table: Inmueble</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>id</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>nombre</b><br/>TEXT
+                </td>
+                <td>
+                    <b>direccion</b><br/>TEXT
+                </td>
+                <td>
+                    <b>tipo</b><br/>TEXT
+                </td>
+                <td>
+                    <b>gastos_comunitarios</b><br/>REAL
+                </td>
+                <td>
+                    <b>referencia_catastral</b><br/>TEXT
+                </td>
+                <td>
+                    <b>ano_construccion</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>ano_compra</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>hipoteca</b><br/>REAL
+                </td>
+                <td>
+                    <b>telefono</b><br/>REAL
+                </td>
+                <td>
+                    <b>agua</b><br/>REAL
+                </td>
+                <td>
+                    <b>electricidad</b><br/>REAL
+                </td>
+                <td>
+                    <b>jardineria</b><br/>REAL
+                </td>
+                <td>
+                    <b>gastos_varios</b><br/>REAL
+                </td>
+                <td>
+                    <b>plaza_parking</b><br/>REAL
+                </td>
+                <td>
+                    <b>parcela</b><br/>TEXT
+                </td>
+                <td>
+                    <b>metros_construidos</b><br/>TEXT
+                </td>
+                <td>
+                    <b>metros_utiles</b><br/>TEXT
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_alta</b><br/>DATE
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="3" align="center">Table: CuentaCorrienteFiador</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>numero</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fiador</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="22" align="center">Table: Contrato</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>id</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>inmueble</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>inquilino</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fiador</b><br/>TEXT
+                </td>
+                <td>
+                    <b>valor</b><br/>REAL
+                </td>
+                <td>
+                    <b>tipo</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_alta</b><br/>DATE
+                </td>
+                <td>
+                    <b>fecha_caducidad</b><br/>DATE
+                </td>
+                <td>
+                    <b>fecha_rev_renta</b><br/>DATE
+                </td>
+                <td>
+                    <b>fianza</b><br/>REAL
+                </td>
+                <td>
+                    <b>meses_sin_renta</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>forma_pago</b><br/>TEXT
+                </td>
+                <td>
+                    <b>estado</b><br/>TEXT
+                </td>
+                <td>
+                    <b>poliza_seguro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>compania_seguro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>capital_continente</b><br/>REAL
+                </td>
+                <td>
+                    <b>franquicia</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_vencimiento_seguro</b><br/>DATE
+                </td>
+                <td>
+                    <b>observaciones_seguro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>copia_local</b><br/>TEXT
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="3" align="center">Table: CuentaCorrientePropietario</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>numero</b><br/>TEXT
+                </td>
+                <td>
+                    <b>propietario</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="14" align="center">Table: Recibo</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>id</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>estado</b><br/>TEXT
+                </td>
+                <td>
+                    <b>propietario</b><br/>TEXT
+                </td>
+                <td>
+                    <b>contrato</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>renta</b><br/>REAL
+                </td>
+                <td>
+                    <b>IVA</b><br/>REAL
+                </td>
+                <td>
+                    <b>IRPF</b><br/>REAL
+                </td>
+                <td>
+                    <b>suplidos</b><br/>REAL
+                </td>
+                <td>
+                    <b>descuento_temp</b><br/>REAL
+                </td>
+                <td>
+                    <b>importe</b><br/>REAL
+                </td>
+                <td>
+                    <b>resto_por_pagar</b><br/>REAL
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_emision</b><br/>DATE
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="3" align="center">Table: CuentaCorrienteInquilino</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>numero</b><br/>TEXT
+                </td>
+                <td>
+                    <b>inquilino</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="17" align="center">Table: Pago</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>id</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>recibo</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>importe</b><br/>REAL
+                </td>
+                <td>
+                    <b>forma_pago</b><br/>TEXT
+                </td>
+                <td>
+                    <b>vencimiento_pagare_giro</b><br/>DATE
+                </td>
+                <td>
+                    <b>gastos_impago_pagare</b><br/>REAL
+                </td>
+                <td>
+                    <b>nombre_banco_transfer_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>numero_cuenta_transfer_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>numero_recibo_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>localidad_expedicion_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha_expedicion_giro</b><br/>DATE
+                </td>
+                <td>
+                    <b>oficina_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>nombre_librado_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>domicilio_librado_giro</b><br/>TEXT
+                </td>
+                <td>
+                    <b>observaciones</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha</b><br/>DATE
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="7" align="center">Table: LineaLibroMayor</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>numero</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>inquilino</b><br/>TEXT
+                </td>
+                <td>
+                    <b>concepto</b><br/>TEXT
+                </td>
+                <td>
+                    <b>fecha</b><br/>DATE
+                </td>
+                <td>
+                    <b>debe</b><br/>REAL
+                </td>
+                <td>
+                    <b>haber</b><br/>REAL
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="3" align="center">Table: PropietarioInmueble</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>propietario</b><br/>TEXT
+                </td>
+                <td>
+                    <b>inmueble</b><br/>INTEGER
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>UPDATE_libromayor_delete_pago</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>BEFORE</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>DELETE</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Pago</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Contrato c
+                    		WHERE	c.id IN
+                    		(
+                    			SELECT	r.contrato
+                    			FROM	Recibo r
+                    			WHERE	OLD.recibo=r.id
+                    		)
+                    	)<br/>UPDATE linealibromayor SET debe=OLD.importe, haber=0, concepto=&quot;Pago &quot;||OLD.fecha||&quot; eliminado&quot;
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.recibo
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=OLD.recibo
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>UPDATE_libromayor_delete_recibo</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>BEFORE</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>DELETE</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Recibo</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.id
+                    	)<br/>UPDATE linealibromayor SET debe=0, haber=OLD.importe, concepto=&quot;Recibo &quot;||OLD.fecha_emision||&quot; eliminado&quot;
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.id
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=OLD.id
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>SET_resto_por_pagar_UPDATE</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>UPDATE OF</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Recibo</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>UPDATE Recibo SET resto_por_pagar=OLD.resto_por_pagar+NEW.importe-OLD.importe WHERE id=NEW.id<br/>UPDATE Recibo SET estado=&quot;PARCIALMENTE PAGADO&quot; WHERE id=NEW.id AND resto_por_pagar&lt;NEW.importe AND resto_por_pagar&gt;0<br/>UPDATE Recibo SET estado=&quot;LIQUIDADO&quot; WHERE resto_por_pagar&lt;=0 and id=NEW.id</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>UPDATE_libromayor_UPDATE_pago</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>UPDATE OF</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Pago</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Contrato c
+                    		WHERE	c.id IN
+                    		(
+                    			SELECT	r.contrato
+                    			FROM	Recibo r
+                    			WHERE	OLD.recibo=r.id
+                    		)
+                    	)<br/>UPDATE linealibromayor SET debe=OLD.importe, haber=NEW.importe, concepto=&quot;Pago &quot;||OLD.fecha||&quot; modificado&quot;
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.recibo
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=OLD.recibo
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>auto_libromayor_debe</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>INSERT</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Recibo</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=NEW.id
+                    	)<br/>UPDATE linealibromayor SET debe=NEW.importe, haber=0, concepto=&quot;Recibo &quot;||NEW.fecha_emision
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=NEW.id
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=NEW.id
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>set_resto_por_pagar</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>INSERT</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Recibo</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>update Recibo set resto_por_pagar=new.importe where id=new.id</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>UPDATE_libromayor_UPDATE_recibo</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>UPDATE OF</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Recibo</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.id
+                    	)<br/>UPDATE linealibromayor SET debe=NEW.importe, haber=OLD.importe, concepto=&quot;Recibo &quot;||OLD.fecha_emision||&quot; modificado&quot;
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=OLD.id
+                    
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=OLD.id
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>init_libro_mayor</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>INSERT</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Inquilino</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino) VALUES (0, NEW.dni_cif)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>auto_libromayor_haber</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>INSERT</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Pago</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>INSERT INTO  linealibromayor (numero, inquilino)
+                    	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+                    	FROM	linealibromayor llm
+                    	WHERE	llm.inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Contrato c
+                    		WHERE	c.id IN
+                    		(
+                    			SELECT	r.contrato
+                    			FROM	Recibo r
+                    			WHERE	NEW.recibo=r.id
+                    		)
+                    	)<br/>UPDATE linealibromayor SET debe=0, haber=NEW.importe, concepto=&quot;Pago &quot;||NEW.fecha
+                    	WHERE	inquilino IN
+                    	(
+                    		SELECT	c.inquilino
+                    		FROM	Recibo r, Contrato c
+                    		WHERE	r.contrato=c.id AND r.id=NEW.recibo
+                    	)
+                    	AND	numero IN
+                    	(
+                    		SELECT	MAX(lm.numero)
+                    		FROM	linealibromayor lm
+                    		WHERE	lm.inquilino IN
+                    		(
+                    			SELECT	c.inquilino
+                    			FROM	Recibo r, Contrato c
+                    			WHERE	r.contrato=c.id AND r.id=NEW.recibo
+                    		)
+                    	)</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td align="center" colspan="2">Trigger: <b>auto_resto_por_pagar</b></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activated:</td>
+                <td><code>AFTER</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Action:</td>
+                <td><code>INSERT</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">On table:</td>
+                <td><code>Pago</code></td>
+            </tr>
+            <tr>
+                <td align="right" class="rownum">Activate condition:</td>
+                <td><code></code></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="separator">Code executed:</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <pre>UPDATE Recibo SET estado=&quot;PARCIALMENTE PAGADO&quot;, resto_por_pagar=resto_por_pagar-NEW.importe WHERE id=NEW.recibo<br/>UPDATE Recibo SET estado=&quot;LIQUIDADO&quot; WHERE resto_por_pagar&lt;=0 and id=NEW.recibo</pre>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <i>Document generated by SQLiteStudio v3.0.6 on lun ago 3 19:56:14 2015</i>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+﻿<Window x:Class="RentManager.Windows.AddContractWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:model="clr-namespace:RentManager.Model"
+		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+		Title="Nuevo Contrato"
+		Height="700" Width="700"
+		WindowStyle="ToolWindow"
+		WindowStartupLocation="CenterScreen"
+		Topmost="True"
+		mc:Ignorable="d"
+		d:DataContext="{d:DesignInstance model:Contract}"
+		>
+	<Window.Resources>
+		<ResourceDictionary Source="../Dictionary.xaml" />
+	</Window.Resources>
+
+	<Grid>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<!-- Region left -->
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<StackPanel>
+				<Label >ID:</Label>
+				<Label >Valor:</Label>
+				<Label >Tipo:</Label>
+				<Label >Fecha:</Label>
+				<Label >Fecha caducidad:</Label>
+				<Label >Fecha revisión:</Label>
+				<Label >Fianza:</Label>
+				<Label >Meses sin renta:</Label>
+				<Label >Estado:</Label>
+				<Label >Forma de pago:</Label>
+				<Label >Póliza seguro:</Label>
+				<Label >Compañía seguro:</Label>
+				<Label >Capital continente:</Label>
+				<Label >Franquicia:</Label>
+				<Label >Fecha vencimiento seguro:</Label>
+				<Label Height="75" VerticalContentAlignment="Top" >Observaciones seguro:</Label>
+				<Label >Copia local:</Label>
+				<Label Height="75" VerticalContentAlignment="Top" >Observaciones:</Label>
+			</StackPanel>
+
+			<StackPanel Grid.Column="1">
+				<TextBox Text="{Binding ID}" IsReadOnly="True"/>
+				<xctk:IntegerUpDown Value="{Binding Value}" Increment="100"/>
+				<ComboBox  Height="25"  SelectedValue="{Binding Type}" SelectedValuePath="Content" SelectedIndex="1">
+					<ComboBoxItem Content="VENTA"/>
+					<ComboBoxItem Content="ALQUILER"/>
+				</ComboBox>
+				<xctk:DateTimePicker  Value="{Binding CreationDate}" />
+				<xctk:DateTimePicker Value="{Binding ExpirationDate}" />
+				<xctk:DateTimePicker Value="{Binding RevisionDate}" />
+				<xctk:IntegerUpDown Value="{Binding Deposit}" Increment="100"/>
+				<xctk:IntegerUpDown Value="{Binding MonthsWithoutRent}"/>
+				<ComboBox  Height="25"  SelectedValue="{Binding Status}" SelectedValuePath="Content" SelectedIndex="0">
+					<ComboBoxItem Content="ACTIVO" />
+					<ComboBoxItem Content="DADO DE BAJA"/>
+					<ComboBoxItem Content="VENCIDO"/>
+					<ComboBoxItem Content="INTERRUMPIDO"/>
+				</ComboBox>
+				<ComboBox Height="25" SelectedValue="{Binding PaymentType}" SelectedValuePath="Content" SelectedIndex="0">
+					<ComboBoxItem Content="TRANSFERENCIA BANCARIA"/>
+					<ComboBoxItem Content="GIRO DOMICILIADO"/>
+					<ComboBoxItem Content="EFECTIVO"/>
+				</ComboBox>
+				<TextBox Text="{Binding InsurancePolicy}" />
+				<TextBox Text="{Binding InsuranceCompany}" />
+				<xctk:IntegerUpDown Value="{Binding ContinentCapital}" Increment="100"/>
+				<TextBox Text="{Binding Franchise}" />
+				<xctk:DateTimePicker Value="{Binding InsuranceExpirationDate}" />
+				<TextBox Text="{Binding InsuranceObservations}" Height="75" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+				<TextBox Text="{Binding LocalCopy}" />
+				<TextBox Text="{Binding Observations}" Height="75" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+
+			</StackPanel>
+
+
+		</Grid>
+
+		<!-- EndRegion -->
+
+		<!-- Region right -->
+
+		<Grid Grid.Column="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<StackPanel>
+				<Label >Inmueble:</Label>
+				<Label >Inquilino:</Label>
+				<Label >Fiador:</Label>
+			</StackPanel>
+
+			<StackPanel Grid.Column="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox Text="{Binding Property, TargetNullValue=-1}" Style="{StaticResource RequiredStyle}" IsReadOnly="True" />
+					<Button Grid.Column="1" Width="25" Height="25" Content="..." Click="OnButtonAddPropertyClick"/>
+				</Grid>
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox Text="{Binding Tenant}" Style="{StaticResource RequiredStyle}" IsReadOnly="True" />
+					<Button Grid.Column="1" Width="25" Height="25" Content="..." Click="OnButtonAddTenantClick"/>
+				</Grid>
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBox Text="{Binding Guarantor}" IsReadOnly="True" />
+					<Button Grid.Column="1" Width="25" Height="25" Content="..." Click="OnButtonAddGuarantorClick"/>
+				</Grid>
+
+			</StackPanel>
+
+
+		</Grid>
+
+		<!-- EndRegion -->
+
+		<StackPanel Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Style="{StaticResource MenuButtonNewStyle}" Click="OnButtonSaveClick" />
+		</StackPanel>
+
+	</Grid>
+</Window>

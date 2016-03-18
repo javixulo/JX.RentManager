@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   fill="#000000"
+   height="24"
+   viewBox="0 0 24 24"
+   width="24"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="person.svg"
+   inkscape:export-filename="..\owner.png"
+   inkscape:export-xdpi="240"
+   inkscape:export-ydpi="240">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="1028"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="-21.031554"
+     inkscape:cy="12.621138"
+     inkscape:window-x="1912"
+     inkscape:window-y="22"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     d="m 15.413629,15.37973 c 2.371985,0 4.293186,-1.9212 4.293186,-4.293185 0,-2.3719846 -1.921201,-4.293185 -4.293186,-4.293185 -2.371984,0 -4.293185,1.9212004 -4.293185,4.293185 0,2.371985 1.921201,4.293185 4.293185,4.293185 z m 0,2.146593 c -2.8657,0 -8.58637,1.438218 -8.58637,4.293186 l 0,2.146592 17.172741,0 0,-2.146592 c 0,-2.854968 -5.720668,-4.293186 -8.58637,-4.293186 z"
+     id="path4"
+     inkscape:connector-curvature="0"
+     style="fill:#4d75e1;fill-opacity:1" />
+  <path
+     d="M0 0h24v24H0z"
+     fill="none"
+     id="path6" />
+  <rect
+     style="fill:#4d75e1;fill-opacity:1"
+     id="rect4134"
+     width="26.440678"
+     height="10.372882"
+     x="-68.94915"
+     y="-11.898307" />
+  <rect
+     style="fill:#193ea1;fill-opacity:1"
+     id="rect4136"
+     width="26.440678"
+     height="10.169491"
+     x="-68.94915"
+     y="1.3220342" />
+  <rect
+     style="fill:#d3edff;fill-opacity:1"
+     id="rect4138"
+     width="26.44068"
+     height="10.779662"
+     x="-68.94915"
+     y="-25.118645" />
+</svg>

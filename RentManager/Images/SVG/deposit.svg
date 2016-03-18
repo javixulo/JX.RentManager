@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="-0.188 0 512 512"
+   enable-background="new -0.188 0 512 512"
+   xml:space="preserve"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="deposit-icon.svg"><metadata
+     id="metadata10"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="0.4609375"
+     inkscape:cx="1135.6972"
+     inkscape:cy="-81.849851"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" /><defs
+     id="defs4" /><g
+     id="g4147"><path
+       id="path6"
+       d="M512,320V0H0v320h66.562c1.75,5.594,4.313,10.969,7.828,16c-6.719,9.625-10.391,20.375-10.391,32  s3.672,22.375,10.391,32c-6.719,9.625-10.391,20.375-10.391,32c0,47.125,59.219,80,144,80s144-32.875,144-80  c0-11.625-3.656-22.375-10.375-32c0,0-0.031,0-0.031,0.031C348.312,390.406,352,379.625,352,368s-3.656-22.375-10.375-32  c0,0-0.031,0-0.031,0.031c3.5-5.031,6.094-10.406,7.844-16.031H512z M66.562,288H32V32h448v256H349.437  c-1.75-5.625-4.313-11-7.844-16.031c0,0.031,0.031,0.031,0.031,0.031H416c0-26.531,21.5-48,48-48V96c-26.5,0-48-21.469-48-48  H293.968C318.906,69.688,336,111.438,336,160c0,34.188-8.595,64.813-22.313,87.625C288.187,232.813,251.578,224,208,224  c-7.188,0-13.922,0.563-20.734,1c0.031,0,0.047,0,0.063,0c-7.156-18.969-11.328-41.125-11.328-65c0-48.563,17.125-90.313,42-112  h-122c0,26.531-21.5,48-48,48v128c20.25,0,37.5,12.563,44.547,30.313C79.718,263.844,70.562,275.125,66.562,288z M368,160  c0-13.25,10.75-24,24-24s24,10.75,24,24s-10.75,24-24,24S368,173.25,368,160z M330.875,260.25c-0.469-0.438-0.75-0.938-1.25-1.375  C330.125,259.313,330.406,259.813,330.875,260.25z M96,160c0-13.25,10.75-24,24-24s24,10.75,24,24s-10.75,24-24,24S96,173.25,96,160  z M208,480c-61.859,0-112-21.5-112-48c0-3.5,0.969-6.875,2.625-10.156C124.203,438.125,162.125,448,208,448  s83.813-9.875,109.375-26.156C319.031,425.125,320,428.5,320,432C320,458.5,269.875,480,208,480z M208,416  c-61.859,0-112-21.5-112-48c0-3.5,0.969-6.875,2.625-10.156C124.203,374.125,162.125,384,208,384s83.813-9.875,109.375-26.156  C319.031,361.125,320,364.5,320,368C320,394.5,269.875,416,208,416z M208,352c-61.859,0-112-21.5-112-48s50.141-48,112-48  c61.875,0,112,21.5,112,48S269.875,352,208,352z"
+       fill="#666666" /></g></svg>

@@ -1,0 +1,416 @@
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE Fiador
+(
+	dni_cif			TEXT PRIMARY KEY,
+	nombre			TEXT NOT NULL,
+	direccion		TEXT NOT NULL,
+	telefono_1		TEXT NOT NULL,
+	telefono_2		TEXT,
+	email			TEXT,
+	estado			TEXT DEFAULT "DADO DE ALTA" CHECK (estado="DADO DE ALTA" OR estado="DADO DE BAJA"),
+	fecha_alta		DATE DEFAULT CURRENT_DATE,
+	observaciones	TEXT
+);
+;
+CREATE TABLE Propietario
+(
+	dni_cif			TEXT PRIMARY KEY,
+	nombre			TEXT NOT NULL,
+	direccion		TEXT NOT NULL,
+	telefono_1		TEXT NOT NULL,
+	telefono_2		TEXT,
+	email			TEXT,
+	estado			TEXT DEFAULT "DADO DE ALTA" CHECK (estado="DADO DE ALTA" OR estado="DADO DE BAJA"),
+	fecha_alta		DATE DEFAULT CURRENT_DATE,
+	observaciones	TEXT
+);
+;
+CREATE TABLE Inquilino
+(
+	dni_cif			TEXT PRIMARY KEY,
+	nombre			TEXT NOT NULL,
+	direccion		TEXT NOT NULL,
+	telefono_1		TEXT NOT NULL,
+	telefono_2		TEXT,
+	email			TEXT,
+	estado			TEXT DEFAULT "DADO DE ALTA" CHECK (estado="DADO DE ALTA" OR estado="DADO DE BAJA"),
+	dia_pago		INTEGER CHECK(dia_pago>0 AND dia_pago<32),
+	fecha_alta		DATE DEFAULT CURRENT_DATE,
+	observaciones	TEXT
+);
+;
+CREATE TABLE CuentaCorrienteInquilino
+(
+	numero		TEXT NOT NULL,
+	inquilino	TEXT REFERENCES Inquilino(dni_cif) ON DELETE CASCADE,
+	
+	PRIMARY KEY(numero, inquilino)
+);
+;
+CREATE TABLE CuentaCorrienteFiador
+(
+	numero		TEXT NOT NULL,
+	fiador		TEXT REFERENCES Fiador(dni_cif) ON DELETE CASCADE,
+	
+	PRIMARY KEY(numero, fiador)
+);
+
+-- Table: CuentaCorrientePropietario
+DROP TABLE IF EXISTS CuentaCorrientePropietario;
+CREATE TABLE CuentaCorrientePropietario
+(
+	numero TEXT NOT NULL,
+	propietario TEXT REFERENCES Propietario (dni_cif) ON DELETE CASCADE,
+	PRIMARY KEY (numero, propietario)
+);
+
+;
+CREATE TABLE LineaLibroMayor
+(
+	numero		INTEGER,
+	inquilino	TEXT REFERENCES Inquilino(dni_cif) ON DELETE CASCADE,
+	concepto	TEXT,
+	fecha		DATE DEFAULT CURRENT_DATE,
+	debe		REAL NOT NULL DEFAULT 0,
+	haber		REAL NOT NULL DEFAULT 0,
+	saldo		REAL NOT NULL DEFAULT 0,
+	primary key (numero, inquilino)
+);
+;
+CREATE TABLE Inmueble
+(
+	id						INTEGER PRIMARY KEY AUTOINCREMENT,
+	nombre					TEXT NOT NULL,
+	direccion				TEXT UNIQUE NOT NULL,
+	tipo					TEXT NOT NULL CHECK(tipo="VIVIENDA" OR tipo="BAJO COMERCIAL" OR tipo="NAVE INDUSTRIAL" OR tipo="SALON DE CELEBRACIONES" OR tipo="OTRO"),
+	gastos_comunitarios		REAL,
+	referencia_catastral	TEXT NOT NULL,
+	ano_construccion		INTEGER,
+	ano_compra				INTEGER,
+	hipoteca				REAL,
+	telefono				REAL,
+	agua					REAL,
+	electricidad			REAL,
+	jardineria				REAL,
+	gastos_varios			REAL,
+	plaza_parking			REAL,
+	parcela					TEXT,
+	metros_construidos		TEXT,
+	metros_utiles			TEXT,
+	observaciones			TEXT,
+	
+	fecha_alta				DATE DEFAULT CURRENT_DATE
+);
+;
+CREATE TABLE PropietarioInmueble
+(
+	propietario		TEXT REFERENCES Propietario(dni_cif) ON DELETE CASCADE,
+	inmueble		INTEGER REFERENCES Inmueble(id) ON DELETE CASCADE,
+	
+	PRIMARY KEY (propietario, inmueble)
+);
+;
+CREATE TABLE Contrato
+(
+	id							INTEGER PRIMARY KEY AUTOINCREMENT,
+	codigo						TEXT UNIQUE NOT NULL,
+	inmueble					INTEGER NOT NULL REFERENCES Inmueble(id) ON DELETE CASCADE,
+	inquilino					TEXT NOT NULL REFERENCES Inquilino(dni_cif) ON DELETE CASCADE,
+	fiador						TEXT REFERENCES Fiador(dni_cif) ON DELETE CASCADE,
+	valor						REAL NOT NULL,
+	tipo						TEXT NOT NULL CHECK (tipo="VENTA" OR tipo="ALQUILER"),
+	fecha_alta					DATE DEFAULT CURRENT_DATE,
+	fecha_caducidad				DATE NOT NULL,
+	fecha_rev_renta				DATE NOT NULL,
+	fianza						REAL NOT NULL,
+	meses_sin_renta				INTEGER NOT NULL DEFAULT 0,
+	forma_pago					TEXT NOT NULL CHECK(forma_pago="PAGARE" OR forma_pago="TRANSFERENCIA BANCARIA" OR forma_pago="GIRO DOMICILIADO" OR forma_pago="EFECTIVO"),
+	estado						TEXT NOT NULL CHECK(estado="ACTIVO" OR estado="DADO DE BAJA" OR estado="VENCIDO" OR estado="INTERRUMPIDO") DEFAULT "ACTIVO",
+	poliza_seguro				TEXT,
+	compania_seguro				TEXT,
+	capital_continente			REAL,
+	franquicia					TEXT,
+	fecha_vencimiento_seguro	DATE,
+	observaciones_seguro		TEXT,
+	copia_local					TEXT,
+	observaciones				TEXT
+);
+CREATE TABLE Recibo
+(
+	id				INTEGER PRIMARY KEY AUTOINCREMENT,
+	numero			INTEGER UNIQUE NOT NULL,
+	estado			TEXT NOT NULL DEFAULT "PENDIENTE DE PAGO" CHECK(estado="PENDIENTE DE PAGO" OR estado="PARCIALMENTE PAGADO" OR estado="LIQUIDADO"),
+	propietario		TEXT NOT NULL REFERENCES Propietario(dni_cif) ON DELETE CASCADE,
+	contrato		INTEGER NOT NULL REFERENCES Contrato(id) ON DELETE CASCADE,
+	renta			REAL NOT NULL,
+	IVA				REAL NOT NULL,
+	IRPF			REAL NOT NULL,
+	suplidos		REAL,
+	descuento_temp	REAL,
+	importe			REAL NOT NULL,
+	resto_por_pagar	REAL,
+	observaciones	TEXT,
+	
+	fecha_emision	DATE NOT NULL
+);
+CREATE TABLE Pago
+(
+	id							INTEGER PRIMARY KEY AUTOINCREMENT,
+	recibo						INTEGER REFERENCES Recibo(id) ON DELETE CASCADE,
+	importe						REAL NOT NULL,
+	forma_pago					TEXT NOT NULL CHECK(forma_pago="PAGARE" OR forma_pago="TRANSFERENCIA BANCARIA" OR forma_pago="GIRO DOMICILIADO" OR forma_pago="EFECTIVO"),
+	vencimiento_pagare_giro		DATE,
+	gastos_impago_pagare		REAL,
+	nombre_banco_transfer_giro	TEXT,
+	numero_cuenta_transfer_giro	TEXT,
+	numero_recibo_giro			TEXT,
+	localidad_expedicion_giro	TEXT,
+	fecha_expedicion_giro		DATE,
+	oficina_giro				TEXT,
+	nombre_librado_giro			TEXT,
+	domicilio_librado_giro		TEXT,
+	observaciones				TEXT,
+	
+	fecha						DATE NOT NULL
+);
+CREATE TRIGGER auto_saldo AFTER INSERT ON linealibromayor
+BEGIN
+	UPDATE linealibromayor SET saldo=
+	(
+		SELECT	ifnull(saldo,0)+new.haber-new.debe
+		FROM	linealibromayor
+		WHERE	inquilino=new.inquilino AND numero IN
+		(
+			SELECT	ifnull(MAX(numero)-1, 0)
+			FROM	linealibromayor
+			WHERE	inquilino=new.inquilino
+		)
+	)
+	WHERE inquilino=new.inquilino AND numero=new.numero;
+END;
+CREATE TRIGGER auto_saldo_update AFTER UPDATE OF haber, debe ON linealibromayor
+BEGIN
+	UPDATE linealibromayor SET saldo=
+	(
+		SELECT	ifnull(saldo,0)+new.haber-OLD.haber-new.debe+OLD.debe
+		FROM	linealibromayor
+		WHERE	inquilino=new.inquilino AND numero IN
+		(
+			SELECT	ifnull(MAX(numero)-1, 0)
+			FROM	linealibromayor
+			WHERE	inquilino=new.inquilino
+		)
+	)
+	WHERE inquilino=new.inquilino AND numero=new.numero;
+END;
+CREATE TRIGGER set_resto_por_pagar AFTER INSERT ON Recibo
+begin
+	update Recibo set resto_por_pagar=new.importe where id=new.id;
+end;
+CREATE TRIGGER SET_resto_por_pagar_UPDATE AFTER UPDATE OF importe ON Recibo
+BEGIN
+	UPDATE Recibo SET resto_por_pagar=OLD.resto_por_pagar+NEW.importe-OLD.importe WHERE id=NEW.id;
+	UPDATE Recibo SET estado="PARCIALMENTE PAGADO" WHERE id=NEW.id AND resto_por_pagar<NEW.importe AND resto_por_pagar>0;
+	UPDATE Recibo SET estado="LIQUIDADO" WHERE resto_por_pagar<=0 and id=NEW.id;
+END;
+CREATE TRIGGER auto_resto_por_pagar AFTER INSERT ON Pago
+BEGIN
+	UPDATE Recibo SET estado="PARCIALMENTE PAGADO", resto_por_pagar=resto_por_pagar-NEW.importe WHERE id=NEW.recibo;
+	UPDATE Recibo SET estado="LIQUIDADO" WHERE resto_por_pagar<=0 and id=NEW.recibo;
+END;
+CREATE TRIGGER auto_libromayor_haber AFTER INSERT ON Pago
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Contrato c
+		WHERE	c.id IN
+		(
+			SELECT	r.contrato
+			FROM	Recibo r
+			WHERE	NEW.recibo=r.id
+		)
+	);
+	UPDATE linealibromayor SET debe=0, haber=NEW.importe, concepto="Pago "||NEW.fecha
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=NEW.recibo
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=NEW.recibo
+		)
+	);
+END;
+CREATE TRIGGER auto_libromayor_debe AFTER INSERT ON Recibo
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=NEW.id
+	);
+	UPDATE linealibromayor SET debe=NEW.importe, haber=0, concepto="Recibo "||NEW.fecha_emision
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=NEW.id
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=NEW.id
+		)
+	);
+END;
+CREATE TRIGGER UPDATE_libromayor_delete_recibo BEFORE DELETE ON Recibo
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.id
+	);
+	UPDATE linealibromayor SET debe=0, haber=OLD.importe, concepto="Recibo "||OLD.fecha_emision||" eliminado"
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.id
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=OLD.id
+		)
+	);
+END;
+CREATE TRIGGER UPDATE_libromayor_delete_pago BEFORE DELETE ON Pago
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Contrato c
+		WHERE	c.id IN
+		(
+			SELECT	r.contrato
+			FROM	Recibo r
+			WHERE	OLD.recibo=r.id
+		)
+	);
+	UPDATE linealibromayor SET debe=OLD.importe, haber=0, concepto="Pago "||OLD.fecha||" eliminado"
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.recibo
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=OLD.recibo
+		)
+	);
+END;
+CREATE TRIGGER UPDATE_libromayor_UPDATE_recibo AFTER UPDATE OF importe ON Recibo
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.id
+	);
+	UPDATE linealibromayor SET debe=NEW.importe, haber=OLD.importe, concepto="Recibo "||OLD.fecha_emision||" modificado"
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.id
+
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=OLD.id
+		)
+	);
+END;
+CREATE TRIGGER UPDATE_libromayor_UPDATE_pago AFTER UPDATE OF importe ON Pago
+BEGIN
+	INSERT INTO  linealibromayor (numero, inquilino)
+	SELECT	max(llm.numero)+1 as numero, llm.inquilino as inquilino
+	FROM	linealibromayor llm
+	WHERE	llm.inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Contrato c
+		WHERE	c.id IN
+		(
+			SELECT	r.contrato
+			FROM	Recibo r
+			WHERE	OLD.recibo=r.id
+		)
+	);
+	UPDATE linealibromayor SET debe=OLD.importe, haber=NEW.importe, concepto="Pago "||OLD.fecha||" modificado"
+	WHERE	inquilino IN
+	(
+		SELECT	c.inquilino
+		FROM	Recibo r, Contrato c
+		WHERE	r.contrato=c.id AND r.id=OLD.recibo
+	)
+	AND	numero IN
+	(
+		SELECT	MAX(lm.numero)
+		FROM	linealibromayor lm
+		WHERE	lm.inquilino IN
+		(
+			SELECT	c.inquilino
+			FROM	Recibo r, Contrato c
+			WHERE	r.contrato=c.id AND r.id=OLD.recibo
+		)
+	);
+END;
