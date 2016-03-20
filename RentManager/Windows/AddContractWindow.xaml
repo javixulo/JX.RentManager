@@ -17,6 +17,8 @@
 		<ResourceDictionary Source="../Dictionary.xaml" />
 	</Window.Resources>
 
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+	
 	<Grid>
 
 		<Grid.ColumnDefinitions>
@@ -151,4 +153,6 @@
 		</StackPanel>
 
 	</Grid>
+
+	</ScrollViewer>
 </Window>

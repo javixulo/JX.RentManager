@@ -26,6 +26,9 @@ namespace RentManager.Controls
 
 		private void NewAccountClick(object sender, RoutedEventArgs e)
 		{
+			if (AccountOwner == null)
+				return;
+
 			List<InputValuesControl.InputItem> items = new List<InputValuesControl.InputItem> { new InputValuesControl.InputItem("Numero", typeof(string)) { Label = "CCC: ", Required = true } };
 			InputValuesWindow window = new InputValuesWindow(items, WindowSize.Small, Orientation.Horizontal, 1);
 			window.InputFinished += OnInputAccountFinished;
@@ -34,7 +37,7 @@ namespace RentManager.Controls
 
 		private void OnDeleteAccountClick(object sender, RoutedEventArgs e)
 		{
-			if (AccountsGrid.SelectedItem == null)
+			if (AccountsGrid.SelectedItem == null || AccountOwner == null)
 				return;
 
 			if (!MessageHelper.WantToContinue())
@@ -51,6 +54,9 @@ namespace RentManager.Controls
 
 		private void OnInputAccountFinished(object sender, InputValuesWindow.InputFinishedEventArgs e)
 		{
+			if (AccountOwner == null)
+				return;
+
 			string account = (string)e.Items.First().Value;
 			AccountOwner.AddAccount(account);
 

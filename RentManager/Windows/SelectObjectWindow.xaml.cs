@@ -20,6 +20,12 @@ namespace RentManager.Windows
 			InitializeComponent();
 
 			var sqliteObjects = objects as IList<ISelectable> ?? objects.ToList();
+
+			if (sqliteObjects.Count == 0)
+			{
+				return;
+			}
+
 			var columns = sqliteObjects.First().GetDataGridColumns();
 
 			foreach (var column in columns)

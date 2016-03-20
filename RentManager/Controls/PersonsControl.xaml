@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:RentManager.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="400" d:DesignWidth="800"
+			 Background="White">
 
 	<Grid.Resources>
 		<ResourceDictionary Source="../Dictionary.xaml" />
@@ -29,7 +30,7 @@
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 
-			<DataGrid x:Name="MainGrid" AutoGenerateColumns="False" 
+			<DataGrid x:Name="MainGrid" AutoGenerateColumns="False"
 			  ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=controls:PersonDataGrid, AncestorLevel=1}, Path=ItemsSource}" 
 			  MouseDoubleClick="OnDataGridDoubleClick" >
 
@@ -60,6 +61,7 @@
 		</Grid>
 
 		<StackPanel Grid.Column="1" >
+			
 			<DataGrid x:Name="PropertiesGrid"  AutoGenerateColumns="False" 
 				  Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=controls:PersonDataGrid, AncestorLevel=1}, Path=HasProperty, Converter={StaticResource BoolToVis}}" 
 				  ItemsSource="{Binding SelectedItem.Properties, ElementName=MainGrid}">

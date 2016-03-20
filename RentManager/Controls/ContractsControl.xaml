@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:RentManager.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="600">
+             d:DesignHeight="500" d:DesignWidth="600"
+	  		 Background="White">
 
 	<Grid.Resources>
 		<ResourceDictionary Source="../Dictionary.xaml" />
