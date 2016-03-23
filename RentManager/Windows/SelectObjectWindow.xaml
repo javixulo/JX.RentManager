@@ -1,4 +1,4 @@
-﻿<Window x:Class="RentManager.Windows.SelectObjectWindow"
+﻿<Window x:Class="JX.RentManager.Windows.SelectObjectWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Seleccionar" Height="300" Width="500" 

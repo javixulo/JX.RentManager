@@ -5,10 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using RentManager.Model;
-using SQLiteFramework;
+using JX.RentManager.Model;
+using JX.SQLiteFramework;
 
-namespace RentManager.Windows
+namespace JX.RentManager.Windows
 {
 
 	public partial class SelectObjectWindow : Window

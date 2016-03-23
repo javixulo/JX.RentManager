@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
-using SQLiteFramework;
+using JX.SQLiteFramework;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "contrato")]
 	public class Contract : SqliteObject

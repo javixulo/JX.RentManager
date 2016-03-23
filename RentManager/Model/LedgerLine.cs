@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using SQLiteFramework;
+using JX.SQLiteFramework;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "LineaLibroMayor")]
 	public class LedgerLine

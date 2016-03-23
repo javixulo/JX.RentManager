@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using SQLiteFramework;
+using JX.SQLiteFramework;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "fiador")]
 	public class Guarantor : PersonBase, IAccountOwner

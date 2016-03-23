@@ -2,12 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using RentManager.Helpers;
-using RentManager.Model;
-using RentManager.Windows;
-using SQLiteFramework;
+using JX.RentManager.Helpers;
+using JX.RentManager.Model;
+using JX.RentManager.Windows;
+using JX.SQLiteFramework;
 
-namespace RentManager.Controls
+namespace JX.RentManager.Controls
 {
 	
 	public partial class ContractsControl

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	public interface ISelectable
 	{

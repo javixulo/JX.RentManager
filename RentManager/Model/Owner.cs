@@ -4,10 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using SQLiteFramework;
+using JX.SQLiteFramework;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "propietario")]
 	public class Owner : PersonBase, IAccountOwner

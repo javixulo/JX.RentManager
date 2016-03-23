@@ -4,11 +4,10 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Controls;
-using JXWPFToolkit.Controls;
-using RentManager.Controls;
-using SQLiteFramework;
+using JX.WPFToolkit.Controls;
+using JX.SQLiteFramework;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "recibo")]
 	public class Receipt : SqliteObject

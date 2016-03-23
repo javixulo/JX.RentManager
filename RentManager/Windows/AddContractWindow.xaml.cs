@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using RentManager.Model;
+using JX.RentManager.Model;
 
-namespace RentManager.Windows
+namespace JX.RentManager.Windows
 {
 	public partial class AddContractWindow
 	{

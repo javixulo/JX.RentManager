@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentManager", "RentManager\RentManager.csproj", "{B02AC0FA-F63B-46AF-BA08-945F05243DDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JX.RentManager", "RentManager\JX.RentManager.csproj", "{B02AC0FA-F63B-46AF-BA08-945F05243DDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

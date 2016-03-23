@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	public interface IAccountOwner : INotifyPropertyChanged
 	{

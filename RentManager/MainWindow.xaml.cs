@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using RentManager.Controls;
-using RentManager.Helpers;
-using RentManager.Model;
-using RentManager.Windows;
+using JX.RentManager.Controls;
+using JX.RentManager.Model;
 
-namespace RentManager
+namespace JX.RentManager
 {
 	public partial class MainWindow
 	{

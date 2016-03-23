@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RentManager.Helpers
+namespace JX.RentManager.Helpers
 {
 	public static class MessageHelper
 	{

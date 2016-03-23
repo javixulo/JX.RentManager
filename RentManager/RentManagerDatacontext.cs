@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SQLite;
-using System.Linq;
 using System.Windows.Controls;
-using JXWPFToolkit.Windows;
-using RentManager.Model;
-using SQLiteFramework;
+using JX.RentManager.Model;
+using JX.SQLiteFramework;
+using JX.WPFToolkit.Windows;
 
-namespace RentManager
+namespace JX.RentManager
 {
 	public class RentManagerDataContext : INotifyPropertyChanged
 	{

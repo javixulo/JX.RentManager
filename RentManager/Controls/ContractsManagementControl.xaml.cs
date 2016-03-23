@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using RentManager.Model;
+using JX.RentManager.Model;
 
-namespace RentManager.Controls
+namespace JX.RentManager.Controls
 {
 	public partial class ContractsManagementControl
 	{

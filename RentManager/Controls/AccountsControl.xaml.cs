@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using JXWPFToolkit.Controls;
-using JXWPFToolkit.Windows;
-using RentManager.Helpers;
-using RentManager.Model;
+using JX.RentManager.Helpers;
+using JX.RentManager.Model;
+using JX.WPFToolkit.Controls;
+using JX.WPFToolkit.Windows;
 
-namespace RentManager.Controls
+namespace JX.RentManager.Controls
 {
 	public partial class AccountsControl
 	{

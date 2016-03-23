@@ -4,10 +4,10 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Windows.Controls;
-using JXWPFToolkit.Controls;
-using SQLiteFramework;
+using JX.SQLiteFramework;
+using JX.WPFToolkit.Controls;
 
-namespace RentManager.Model
+namespace JX.RentManager.Model
 {
 	[SqliteTable(TableName = "inmueble")]
 	public class Property : SqliteObject, ISelectable
